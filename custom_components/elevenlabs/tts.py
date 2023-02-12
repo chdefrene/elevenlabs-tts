@@ -86,7 +86,7 @@ class ElevenLabsProvider(Provider):
                 "xi-api-key": self._apikey
             }
 
-            response = requests.post(url, data=data, headers=headers)
+            response = requests.post(url, json=data, headers=headers)
 
             if response.status_code == requests.codes.ok:
                 _LOGGER.debug("Text synthesis OK")
