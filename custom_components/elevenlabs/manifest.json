@@ -1,7 +1,7 @@
 {
   "domain": "elevenlabs",
   "name": "ElevenLabs Text-to-Speech (TTS)",
-  "config_flow": true,
+  "config_flow": false,
   "documentation": "",
   "iot_class": "cloud_push",
   "requirements": [],
