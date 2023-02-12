@@ -1,21 +1,11 @@
 import logging
 from http.client import HTTPException
 
-import homeassistant.helpers.config_validation as cv
 import requests
-import voluptuous as vol
-from homeassistant.components.tts import PLATFORM_SCHEMA, Provider
-from homeassistant.const import CONF_API_KEY
+from homeassistant.components.tts import Provider
 
 CONF_VOICE = "voice"
 _LOGGER = logging.getLogger(__name__)
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Required(CONF_API_KEY): cv.string,
-        vol.Required(CONF_VOICE): cv.string,
-    }
-)
 
 
 class ElevenLabsProvider(Provider):

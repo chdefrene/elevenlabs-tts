@@ -1,12 +1,20 @@
 """Config flow for ElevenLabs integration."""
 import logging
 
-from homeassistant import config_entries, exceptions
+import voluptuous as vol
+from homeassistant import config_entries
 from homeassistant.const import CONF_API_KEY
 
-from .tts import PLATFORM_SCHEMA, CONF_VOICE
+from .tts import CONF_VOICE
 
 _LOGGER = logging.getLogger(__name__)
+
+DATA_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_API_KEY): str,
+        vol.Required(CONF_VOICE): str,
+    }
+)
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain="elevenlabs"):
@@ -36,9 +44,5 @@ class ConfigFlow(config_entries.ConfigFlow, domain="elevenlabs"):
         # If there is no user input or there were errors, show the form again,
         # including any errors that were found with the input.
         return self.async_show_form(
-            step_id="user", data_schema=PLATFORM_SCHEMA, errors=errors
+            step_id="user", data_schema=DATA_SCHEMA, errors=errors
         )
-
-
-class CannotConnect(exceptions.HomeAssistantError):
-    """Error to indicate we cannot connect."""
