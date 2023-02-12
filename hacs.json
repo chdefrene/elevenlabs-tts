@@ -1,0 +1,5 @@
+{
+    "name": "ElevenLabs Text-to-Speech (TTS)",
+    "iot_class": "Cloud Push",
+    "render_readme": true
+}
