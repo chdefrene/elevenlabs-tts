@@ -18,6 +18,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 
+def get_engine(hass, config, discovery_info=None):
+    """Set up ElevenLabs speech component."""
+    return ElevenLabsProvider(
+        config[CONF_API_KEY],
+        config[CONF_VOICE],
+    )
+
+
 class ElevenLabsProvider(Provider):
     """The ElevenLabs speech API provider."""
 
