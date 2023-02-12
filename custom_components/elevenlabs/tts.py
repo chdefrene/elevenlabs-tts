@@ -37,30 +37,30 @@ class ElevenLabsProvider(Provider):
         self._voice = voice
         self.name = "ElevenLabs"
 
-    # @property
-    # def default_language(self):
-    #     """Return the default language."""
-    #     return self._lang
+    @property
+    def default_language(self):
+        """Return the default language."""
+        return "en"
 
-    # @property
-    # def supported_languages(self):
-    #     """Return list of supported languages."""
-    #     return SUPPORTED_LANGUAGES
+    @property
+    def supported_languages(self):
+        """Return list of supported languages."""
+        return ["en"]
 
-    # @property
-    # def supported_options(self):
-    #     """Return list of supported options like voice, emotion."""
-    #     return [CONF_VOICE]
+    @property
+    def supported_options(self):
+        """Return list of supported options like voice, emotion."""
+        return []
 
-    # @property
-    # def default_options(self):
-    #     """Return a dict include default options."""
-    #     return {CONF_VOICE: self._voice}
+    @property
+    def default_options(self):
+        """Return a dict include default options."""
+        return {}
 
     def get_tts_audio(self, message, language, options=None):
         """Load TTS from ElevenLabs."""
-        # if options['voice'] is None:
-        #     language = self._lang
+        if language is None:
+            language = "en"
 
         try:
             # trans = pycsspeechtts.TTSTranslator(self._apikey, self._region)
